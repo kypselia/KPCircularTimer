@@ -1,114 +1,91 @@
-# CircularTimer
+# KPCircularTimer
 
-CircularTimer is a class that creates a custom circular timer, showing the percentage completed between two dates.
+KPCircularTimer is an IBDesignable component that creates a custom circular timer, showing the percentage completed since start.
 
 ## Installation
 ===
 
-Drop the files `CircularTimer.h` and `CircularTimer.m` into your Xcode project.
+Drop the files `KPCircularTimer.h` and `KPCircularTimer.m` into your Xcode project.
 
 ## Usage
 ===
 
-In your ViewController import the header file `CircularTimer.h`, and create a CircularTimer property to keep a reference:
+In your Storyboard, add a UIView to your scene, set its class to KPCircularTimer and configure its properties in the Attributes pane. You will in particular want to configure the background and foreground colors for your timer view to be visible. 
 
-`@property (nonatomic, strong) CircularTimer *circularTimer;`
-
-Then, to create the object use a code like this:
-
-```
-self.circularTimer = 
-[[CircularTimer alloc] initWithPosition:CGPointMake(0.0f, 0.0f)
-                                 radius:radius
-                         internalRadius:internalRadius
-                      circleStrokeColor:circleStrokeColor
-                activeCircleStrokeColor:activeCircleStrokeColor
-                            initialDate:initialDate
-                              finalDate:finalDate
-                          startCallback:^{
-                              //do something
-                          }
-                            endCallback:^{
-                                //do something
-                            }];
-```                              
-
-and add it as subview
-
-```
-[self.view addSubview:self.circularTimer];
-```
+In your View Controller class, set the `timeToRun` property to the duration of the timer, then call the `start` method to start the timer. You may also configure block callbacks to be executed at the start and end of the timer. 
 
 ## Methods
 ===
 
-Create a CircularTimer using:
+Create a timer using:
 
 ```
-- (id)initWithPosition:(CGPoint)position
-                radius:(float)radius
-        internalRadius:(float)internalRadius
-     circleStrokeColor:(UIColor *)circleStrokeColor
-activeCircleStrokeColor:(UIColor *)activeCircleStrokeColor
-           initialDate:(NSDate *)initialDate
-             finalDate:(NSDate *)finalDate
-         startCallback:(void (^)(void))startBlock
-           endCallback:(void (^)(void))endBlock;       
+- (id)initWithTimeInterval:(NSTimeInterval)timeToRun 
+                  position:(CGPoint)position 
+                    radius:(CGFloat)radius 
+               strokeWidth:(CGFloat)strokeWidth 
+     backgroundStrokeColor:(UIColor *)backgroundStrokeColor 
+     foregroundStrokeColor:(UIColor *)foregroundStrokeColor 
+             startCallback:(void (^)(void))startBlock 
+               endCallback:(void (^)(void))endBlock;
 ```
 
-You can see the meaning of `radius`, `internalRadius`, `circleStrokeColor` and `activeCircleStrokeColor` in this image:
-
-![image](https://github.com/crowd-studio/circulartimer/blob/master/Assets/circleinfo.png?raw=true)
-
 ```
-- (BOOL)isRunning;
+- (void)start;
 ```
-Indicates if the CircularTimer is currently running.
-
-```
-- (BOOL)willRun;
-```
-Indicates if the CircularTimer will run (in other words, if the current time is smaller than the CircularTimer `finalDate`).
+Starts the timer.
 
 ```
 - (void)stop;
 ```
-Stops the CircularTimer.
+Stops the timer.
 
 ```
-- (NSTimeInterval)intervalLength;
+- (void)pause;
 ```
-Returns the interval between the `initialDate` and the `finalDate`.
+Pauses the timer.
 
 ```
-- (NSTimeInterval)runningElapsedTime;
+- (void)resume;
 ```
-Returns the interval of time elapsed since the CircularTimer started running.
+Resumes the timer.
+
+```
+- (BOOL)isRunning;
+```
+Indicates if the timer is currently running.
+
+```
+- (NSTimeInterval)elapsedTime;
+```
+Returns the interval of time elapsed since the timer started running.
+
 
 ## Demo
 
-You can find a demo project in this repository. Meanwhile, you can watch a teaser:
-
-[https://vimeo.com/57868337](https://vimeo.com/57868337)
+You can find a demo project in this repository. 
 
 ## About us
 ===
 
-##### CROWD STUDIO
+##### KYPSELIA
 
-[@crowdstudio_](http://twitter.com/crowdstudio_)
+[@kypselia](http://twitter.com/kypselia)
 
-[http://crowd-studio.com/](http://crowd-studio.com/)
+[http://kypselia.com/](http://kypselia.com/)
 
-[http://facebook.com/thisiscrowd](http://facebook.com/thisiscrowd)
+[http://facebook.com/kypselia](http://facebook.com/kypselia)
+
 
 ## Licence
 ===
   
-Copyright (C) 2013 CROWD STUDIO
+Copyright (C) 2014 KYPSELIA. 
+Partly based on code from CROWD STUDIO, copyright (C) 2013 CROWD STUDIO
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+

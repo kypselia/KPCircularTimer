@@ -1,9 +1,9 @@
 //
 //  AppDelegate.h
-//  CircularTimerDemo
+//  KPCircularTimerDemo
 //
-//  Created by Bernat Bombi Fernandez on 20/01/13.
-//  Copyright (c) 2013 Crowd Studio. All rights reserved.
+//  Created by Karim-Pierre Maalej on 29/09/2014.
+//  Copyright (c) 2014 Kypselia. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) UIWindow *window;
 
+
 @end
+
