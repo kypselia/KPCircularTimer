@@ -1,0 +1,106 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>KPCircularTimer by kypselia</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>KPCircularTimer</h1>
+        <p>IBDesignable component that creates a circular timer for iOS</p>
+
+        <p class="view"><a href="https://github.com/kypselia/KPCircularTimer">View the Project on GitHub <small>kypselia/KPCircularTimer</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/kypselia/KPCircularTimer/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/kypselia/KPCircularTimer/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/kypselia/KPCircularTimer">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <h1>
+<a name="kpcirculartimer" class="anchor" href="#kpcirculartimer"><span class="octicon octicon-link"></span></a>KPCircularTimer</h1>
+
+<p>KPCircularTimer is an IBDesignable component that creates a custom circular timer, showing the percentage completed since start.</p>
+
+<h2>
+<a name="installation" class="anchor" href="#installation"><span class="octicon octicon-link"></span></a>Installation</h2>
+
+<p>Drop the files <code>KPCircularTimer.h</code> and <code>KPCircularTimer.m</code> into your Xcode project.</p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>In your Storyboard, add a UIView to your scene, set its class to KPCircularTimer and configure its properties in the Attributes pane. You will in particular want to configure the background and foreground colors for your timer view to be visible. </p>
+
+<p>In your View Controller class, set the <code>timeToRun</code> property to the duration of the timer, then call the <code>start</code> method to start the timer. You may also configure block callbacks to be executed at the start and end of the timer. </p>
+
+<h2>
+<a name="methods" class="anchor" href="#methods"><span class="octicon octicon-link"></span></a>Methods</h2>
+
+<p>Create a timer using:</p>
+
+<pre><code>- (id)initWithTimeInterval:(NSTimeInterval)timeToRun 
+                  position:(CGPoint)position 
+                    radius:(CGFloat)radius 
+               strokeWidth:(CGFloat)strokeWidth 
+     backgroundStrokeColor:(UIColor *)backgroundStrokeColor 
+     foregroundStrokeColor:(UIColor *)foregroundStrokeColor 
+             startCallback:(void (^)(void))startBlock 
+               endCallback:(void (^)(void))endBlock;
+</code></pre>
+
+<pre><code>- (void)start;
+</code></pre>
+
+<p>Starts the timer.</p>
+
+<pre><code>- (void)stop;
+</code></pre>
+
+<p>Stops the timer.</p>
+
+<pre><code>- (void)pause;
+</code></pre>
+
+<p>Pauses the timer.</p>
+
+<pre><code>- (void)resume;
+</code></pre>
+
+<p>Resumes the timer.</p>
+
+<pre><code>- (BOOL)isRunning;
+</code></pre>
+
+<p>Indicates if the timer is currently running.</p>
+
+<pre><code>- (NSTimeInterval)elapsedTime;
+</code></pre>
+
+<p>Returns the interval of time elapsed since the timer started running.</p>
+
+<h2>
+<a name="demo" class="anchor" href="#demo"><span class="octicon octicon-link"></span></a>Demo</h2>
+
+<p>You can find a demo project in the github repository. </p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/kypselia">kypselia</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
