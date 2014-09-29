@@ -3,19 +3,16 @@
 KPCircularTimer is an IBDesignable component that creates a custom circular timer, showing the percentage completed since start.
 
 ## Installation
-===
 
 Drop the files `KPCircularTimer.h` and `KPCircularTimer.m` into your Xcode project.
 
 ## Usage
-===
 
 In your Storyboard, add a UIView to your scene, set its class to KPCircularTimer and configure its properties in the Attributes pane. You will in particular want to configure the background and foreground colors for your timer view to be visible. 
 
 In your View Controller class, set the `timeToRun` property to the duration of the timer, then call the `start` method to start the timer. You may also configure block callbacks to be executed at the start and end of the timer. 
 
 ## Methods
-===
 
 Create a timer using:
 
@@ -66,7 +63,6 @@ Returns the interval of time elapsed since the timer started running.
 You can find a demo project in this repository. 
 
 ## About us
-===
 
 ##### KYPSELIA
 
@@ -78,7 +74,6 @@ You can find a demo project in this repository.
 
 
 ## Licence
-===
   
 Copyright (C) 2014 KYPSELIA. 
 Partly based on code from CROWD STUDIO, copyright (C) 2013 CROWD STUDIO
